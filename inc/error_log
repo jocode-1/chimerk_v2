@@ -1,0 +1,2 @@
+[12-Mar-2021 12:44:01 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/tehubafr/public_html/lahPay/inc/portal.php on line 401
+[12-Mar-2021 17:22:30 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/tehubafr/public_html/lahPay/inc/portal.php on line 401
