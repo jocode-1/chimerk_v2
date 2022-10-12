@@ -49,7 +49,7 @@ include_once('header.php');
 									<input type="text" class="form-control" placeholder="Enter Category Name" id="category_name" name="category_name">
 								</div>
 								<div class="mb-3">
-												<label class="form-label" for="inputState">Status</label>
+												<label class="form-label" >Status</label>
 												<select class="form-control" id="status" name="status">
 													<option value="1">Active</option>
 													<option value="2">Deactive</option>
