@@ -53,7 +53,7 @@
   data-sidebar-behavior: sticky (default), fixed, compact
 -->
 
-<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+<body data-theme="dark" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -108,34 +108,32 @@
 					</li>
 					<li class="sidebar-item">
 						<a data-bs-target="#auth" data-bs-toggle="collapse" class="sidebar-link collapsed">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Auth</span>
-							<span class="badge badge-sidebar-secondary">Special</span>
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Sales</span>
 						</a>
 						<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset
+							<li class="sidebar-item"><a class="sidebar-link" href="create_sales.php">Create Sales</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="view_sales.php">View Sales</a></li>
+							<!-- <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset
 									Password</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li> -->
 						</ul>
 					</li>
 					<li class="sidebar-item">
 						<a data-bs-target="#documentation" data-bs-toggle="collapse" class="sidebar-link collapsed">
 							<i class="align-middle" data-feather="book-open"></i> <span
-								class="align-middle">Documentation</span>
+								class="align-middle">Expenses</span>
 						</a>
 						<ul id="documentation" class="sidebar-dropdown list-unstyled collapse "
 							data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link"
-									href="docs-introduction.html">Introduction</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="docs-installation.html">Getting
-									Started</a></li>
-							<li class="sidebar-item"><a class="sidebar-link"
+									href="docs-introduction.html">Create Expenses</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-installation.html">View Expenses</a></li>
+							<!-- <li class="sidebar-item"><a class="sidebar-link"
 									href="docs-customization.html">Customization</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="docs-plugins.html">Plugins</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="docs-changelog.html">Changelog</a>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 
@@ -352,6 +350,7 @@
 							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Mega menu
 						</a>
+						
 						<div class="dropdown-menu dropdown-menu-start dropdown-mega" aria-labelledby="servicesDropdown">
 							<div class="d-md-flex align-items-start justify-content-start">
 								<div class="dropdown-mega-list">
@@ -389,6 +388,19 @@
 						</div>
 					</li>
 				</ul>
+				<ul class="navbar-nav">
+				<li class="nav-item px-2"><h2 class="nav-link" id="time"></h2></li>
+				</ul>
+
+				<h3 class="mb-2" ></h3>
+
+				<script>
+        var Time = document.getElementById("time");
+        Time.innerText = new Date().toLocaleString()
+        setInterval(function() {
+          Time.innerText = new Date().toLocaleString()
+        }, 1000)
+        </script>
 
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav navbar-align">

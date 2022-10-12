@@ -118,6 +118,29 @@ class PortalUtility
 		return $status;
 	}
 
+	public function createSales($conn, $agent_id, $agent_name, $sales_point, $product_name, $product_price, $product_quantity, $total_amount, $amount_paid, $amount_owing, $customer_name, $payment_type, $product_id)
+{
+    $status = "";
+    $flag = "";
+    if($amount_owing > 0){
+        $flag = 'Owing';
+    }else{
+        $flag = 'Y';
+    }
+    $updateProducts = $this->getProductQuantity($conn, $product_id);
+    $salesDeduction =  $updateProducts - $product_quantity;
+    $sales_id = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 5);
+    $sql = "INSERT INTO `sales`(`sales_id`, `agent_id`, `fullname`, `product_name`, `product_price`, `product_quantity`, `total_amount`, `amount_paid`, `amount_owing`, `customer_name`, `payment_type`,`status`)
+     VALUES ('$sales_id','$agent_id', '$agent_name', '$product_name','$product_price','$product_quantity','$total_amount','$amount_paid', '$amount_owing', '$customer_name','$payment_type','$flag')";
+    if (mysqli_query($conn, $sql)) {
+        $status = json_encode(array("message" => "success", "agent_id" => $agent_id), JSON_PRETTY_PRINT);
+         $this->updateProductQuantity($conn, $product_id, $salesDeduction);
+    } else {
+        $status = json_encode(array("message" => "error", "agent_id" => "null"), JSON_PRETTY_PRINT);
+    }
+    return $status;
+}
+
 
 	public function fetchStaff($conn)
 	{
@@ -171,10 +194,23 @@ class PortalUtility
 		return '1';
 	}
 
-	//login and twofactor authenticator
+	public function updateProductQuantity($conn, $product_id, $newValue)
+	{
 
 	
+		$sql = "UPDATE `products` SET product_quantity = '$newValue' WHERE `product_id` = '$product_id'";
+		$result = mysqli_query($conn, $sql);
+		//return '1';
+	}
 
+	public function getProductQuantity($conn, $product)
+	{
+		
+		$sql = "SELECT * FROM `products` WHERE `product_id`  = '$product'";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	 	return $row['product_quantity'];
+	}
 
 	public function agents($conn)
 	{
