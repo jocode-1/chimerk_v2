@@ -3,6 +3,29 @@
 // include_once('inc/session.php');
 include_once('header.php');
 
+$query_03 = "select product_quantity  FROM product";
+$rez = mysqli_query($conn, $query_03);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total = $rows['product_quantity'];
+}
+
+$query_05 = "select sum(amount_paid) AS total  FROM sales";
+$rez = mysqli_query($conn, $query_05);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total3 = $rows['total'];
+}
+
+$query_04 = "select product_quantity  FROM sales";
+$rez = mysqli_query($conn, $query_04);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total4 = $rows['product_quantity'];
+}
+$query_06 = "select count(*) AS total  FROM sales";
+$rez = mysqli_query($conn, $query_06);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total6 = $rows['total'];
+}
+
 ?>
 
 			<main class="content">
@@ -46,8 +69,8 @@ include_once('header.php');
 									<div class="row g-0 w-100">
 										<div class="col-6">
 											<div class="illustration-text p-3 m-1">
-												<h4 class="illustration-text">Welcome Back, Chris!</h4>
-												<p class="mb-0">AppStack Dashboard</p>
+												<h4 class="illustration-text">Welcome Back, <?php echo $userDetails['fullname']; ?>!</h4>
+												<p class="mb-0">Don-Chimerk Dashboard</p>
 											</div>
 										</div>
 										<div class="col-6 align-self-end text-end">
@@ -63,11 +86,11 @@ include_once('header.php');
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2">$ 24.300</h3>
-											<p class="mb-2">Total Earnings</p>
+											<h3 class="mb-2"><?php echo $total; ?></h3>
+											<p class="mb-2">Litres In-Stock</p>
 											<div class="mb-0">
-												<span class="badge badge-soft-success me-2"> +5.35% </span>
-												<span class="text-muted">Since last week</span>
+												<!-- <span class="badge badge-soft-success me-2"> +5.35% </span>
+												<span class="text-muted">Since last week</span> -->
 											</div>
 										</div>
 										<div class="d-inline-block ms-3">
@@ -84,11 +107,11 @@ include_once('header.php');
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2">43</h3>
-											<p class="mb-2">Pending Orders</p>
+											<h3 class="mb-2"><?php echo $total3; ?></h3>
+											<p class="mb-2">Total Money Paid</p>
 											<div class="mb-0">
-												<span class="badge badge-soft-danger me-2"> -4.25% </span>
-												<span class="text-muted">Since last week</span>
+												<!-- <span class="badge badge-soft-danger me-2"> -4.25% </span>
+												<span class="text-muted">Since last week</span> -->
 											</div>
 										</div>
 										<div class="d-inline-block ms-3">
@@ -105,11 +128,9 @@ include_once('header.php');
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2">$ 18.700</h3>
-											<p class="mb-2">Total Revenue</p>
+											<h3 class="mb-2"><?php echo $total4; ?></h3>
+											<p class="mb-2">Total Litres Sold</p>
 											<div class="mb-0">
-												<span class="badge badge-soft-success me-2"> +8.65% </span>
-												<span class="text-muted">Since last week</span>
 											</div>
 										</div>
 										<div class="d-inline-block ms-3">
@@ -121,9 +142,28 @@ include_once('header.php');
 								</div>
 							</div>
 						</div>
+						<!-- <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+							<div class="card flex-fill">
+								<div class="card-body py-4">
+									<div class="d-flex align-items-start">
+										<div class="flex-grow-1">
+											<h3 class="mb-2"><?php echo $total6; ?></h3>
+											<p class="mb-2">Total Sales</p>
+											<div class="mb-0">
+											</div>
+										</div>
+										<div class="d-inline-block ms-3">
+											<div class="stat">
+												<i class="align-middle text-info" data-feather="dollar-sign"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
 					</div>
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12 col-lg-8 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
@@ -204,9 +244,9 @@ include_once('header.php');
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12 col-lg-6 col-xl-4 d-flex">
 							<div class="card flex-fill">
 								<div class="card-header">
@@ -345,7 +385,7 @@ include_once('header.php');
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="card flex-fill">
 						<div class="card-header">
@@ -362,83 +402,11 @@ include_once('header.php');
 									</div>
 								</div>
 							</div>
-							<h5 class="card-title mb-0">Latest Projects</h5>
+							<h5 class="card-title mb-0">Latest Sales</h5>
 						</div>
-						<table id="datatables-dashboard-projects" class="table table-striped my-0">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th class="d-none d-xl-table-cell">Start Date</th>
-									<th class="d-none d-xl-table-cell">End Date</th>
-									<th>Status</th>
-									<th class="d-none d-md-table-cell">Assignee</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Project Apollo</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Carl Jenkins</td>
-								</tr>
-								<tr>
-									<td>Project Fireball</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-danger">Cancelled</span></td>
-									<td class="d-none d-md-table-cell">Bertha Martin</td>
-								</tr>
-								<tr>
-									<td>Project Hades</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Stacie Hall</td>
-								</tr>
-								<tr>
-									<td>Project Nitro</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-warning">In progress</span></td>
-									<td class="d-none d-md-table-cell">Carl Jenkins</td>
-								</tr>
-								<tr>
-									<td>Project Phoenix</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Bertha Martin</td>
-								</tr>
-								<tr>
-									<td>Project X</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Stacie Hall</td>
-								</tr>
-								<tr>
-									<td>Project Romeo</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Ashley Briggs</td>
-								</tr>
-								<tr>
-									<td>Project Wombat</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-warning">In progress</span></td>
-									<td class="d-none d-md-table-cell">Bertha Martin</td>
-								</tr>
-								<tr>
-									<td>Project Zircon</td>
-									<td class="d-none d-xl-table-cell">01/01/2022</td>
-									<td class="d-none d-xl-table-cell">31/06/2022</td>
-									<td><span class="badge bg-danger">Cancelled</span></td>
-									<td class="d-none d-md-table-cell">Stacie Hall</td>
-								</tr>
-							</tbody>
+						<table id="datatables-buttons" class="table table-striped" style="width:100%">
+
+
 						</table>
 					</div>
 				</div>
@@ -579,7 +547,9 @@ include_once('header.php');
 			});
 		});
 	</script>
-
+<script src="js/sweet.js"></script>
+<script src="js/app.js"></script>
+<script src="js/view_sales.js"></script>
 </body>
 
 

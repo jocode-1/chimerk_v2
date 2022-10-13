@@ -3,6 +3,18 @@
 // include_once('inc/session.php');
 include_once('header2.php');
 
+$query_03 = "select product_quantity  FROM product";
+$rez = mysqli_query($conn, $query_03);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total = $rows['product_quantity'];
+}
+
+$query_05 = "select sum(amount_paid) AS total  FROM sales";
+$rez = mysqli_query($conn, $query_05);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total3 = $rows['total'];
+}
+
 ?>
 
 			<main class="content">
@@ -46,8 +58,8 @@ include_once('header2.php');
 									<div class="row g-0 w-100">
 										<div class="col-6">
 											<div class="illustration-text p-3 m-1">
-												<h4 class="illustration-text">Welcome Back, Chris!</h4>
-												<p class="mb-0">AppStack Dashboard</p>
+												<h4 class="illustration-text">Welcome Back, <?php echo $userDetails['fullname']; ?>!</h4>
+												<p class="mb-0">Don-Chimerk Dashboard</p>
 											</div>
 										</div>
 										<div class="col-6 align-self-end text-end">
@@ -63,11 +75,11 @@ include_once('header2.php');
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2">$ 24.300</h3>
-											<p class="mb-2">Total Earnings</p>
+											<h3 class="mb-2"><?php echo $total; ?></h3>
+											<p class="mb-2">Litres In-Stock</p>
 											<div class="mb-0">
-												<span class="badge badge-soft-success me-2"> +5.35% </span>
-												<span class="text-muted">Since last week</span>
+												<!-- <span class="badge badge-soft-success me-2"> +5.35% </span>
+												<span class="text-muted">Since last week</span> -->
 											</div>
 										</div>
 										<div class="d-inline-block ms-3">
@@ -84,11 +96,11 @@ include_once('header2.php');
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2">43</h3>
-											<p class="mb-2">Pending Orders</p>
+											<h3 class="mb-2"><?php echo $total3; ?></h3>
+											<p class="mb-2">Total Money Paid</p>
 											<div class="mb-0">
-												<span class="badge badge-soft-danger me-2"> -4.25% </span>
-												<span class="text-muted">Since last week</span>
+												<!-- <span class="badge badge-soft-danger me-2"> -4.25% </span>
+												<span class="text-muted">Since last week</span> -->
 											</div>
 										</div>
 										<div class="d-inline-block ms-3">
@@ -123,7 +135,7 @@ include_once('header2.php');
 						</div>
 					</div>
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12 col-lg-8 d-flex">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
@@ -204,9 +216,9 @@ include_once('header2.php');
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12 col-lg-6 col-xl-4 d-flex">
 							<div class="card flex-fill">
 								<div class="card-header">
@@ -345,7 +357,7 @@ include_once('header2.php');
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="card flex-fill">
 						<div class="card-header">
@@ -362,7 +374,7 @@ include_once('header2.php');
 									</div>
 								</div>
 							</div>
-							<h5 class="card-title mb-0">Latest Projects</h5>
+							<h5 class="card-title mb-0">Latest Sales</h5>
 						</div>
 						<table id="datatables-dashboard-projects" class="table table-striped my-0">
 							<thead>

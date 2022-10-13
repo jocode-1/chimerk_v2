@@ -43,13 +43,7 @@ $(document).ready(function () {
 
                                 }
                         },
-                        {
-                            "sTitle": "Edit",
-                            "mData": "category_id",
-                            "render": function (mData, type, row, meta) {
-                                return '<button class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1 edit" data = ' + mData + '></i> Edit</button>'
-                            }
-                        },
+                        
                         {
                             "sTitle": "Delete",
                             "mData": "category_id",
