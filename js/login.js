@@ -42,7 +42,7 @@ $(document).ready(function () {
 							$("#login").val('LOGIN');
 							$("#login").attr('disabled', false);
 						}else if(role  < 3){
-							window.location = "agent_dashboard.php";
+							window.location = "dashboard.php";
 							$("#login").val('LOGIN');
 							$("#login").attr('disabled', false);
 						}else{

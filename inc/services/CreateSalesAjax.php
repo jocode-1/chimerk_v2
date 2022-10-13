@@ -23,6 +23,6 @@ $product_id = trim(mysqli_real_escape_string($conn, !empty($_POST['product_id'])
 
 
 $user = $portal->createSales($conn, $agent_id, $agent_name, $product_name, $product_price,
- $product_quantity, $total_amount, $amount_paid, $amount_owing, $customer_name, $payment_type,$product_id);
+ $product_quantity, $total_amount, $amount_paid, $amount_owing, $customer_name, $payment_type, $product_id);
 echo $user;
 
