@@ -127,11 +127,12 @@ class PortalUtility
     }else{
         $flag = 'Y';
     }
+	
     $updateProducts = $this->getProductQuantity($conn, $product_id);
     $salesDeduction =  $updateProducts - $product_quantity;
-	print_r($salesDeduction);
+	// print_r($salesDeduction);
     $sales_id = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 5);
-    $sql = "INSERT INTO `sales`(`sales_id`, `agent_id`, `fullname`, `product_name`, `product_price`, `quantity`, `total_amount`, `amount_paid`, `amount_owing`, `customer_name`, `payment_type`,`status`)
+    $sql = "INSERT INTO `sales`(`sales_id`, `agent_id`, `fullname`, `product_name`, `product_price`, `product_quantity`, `total_amount`, `amount_paid`, `amount_owing`, `customer_name`, `payment_type`,`status`)
      VALUES ('$sales_id','$agent_id', '$agent_name', '$product_name','$product_price','$product_quantity','$total_amount','$amount_paid', '$amount_owing', '$customer_name','$payment_type','$flag')";
     if (mysqli_query($conn, $sql)) {
         $status = json_encode(array("message" => "success", "agent_id" => $agent_id), JSON_PRETTY_PRINT);
@@ -214,6 +215,14 @@ class PortalUtility
 		return '1';
 	}
 
+	public function disableStaff($conn, $staff_id)
+	{
+
+		$sql = "UPDATE `staff` SET `active` = 'N' WHERE `staff_id` = '$staff_id'";
+		$result = mysqli_query($conn, $sql);
+		return '1';
+	}
+
 	public function deleteProduct($conn, $product_id)
 	{
 
@@ -222,11 +231,11 @@ class PortalUtility
 		return '1';
 	}
 
-	public function updateProductQuantity($conn, $product_id, $salesDeduction)
+	public function updateProductQuantity($conn, $product_id, $newValue)
 	{
 
 	
-		$sql = "UPDATE `product` SET quantity = '$salesDeduction' WHERE `product_id` = '$product_id'";
+		$sql = "UPDATE `product` SET `product_quantity` = '$newValue' WHERE `product_id` = '$product_id'";
 		$result = mysqli_query($conn, $sql);
 		// return '1';
 	}
@@ -237,7 +246,7 @@ class PortalUtility
 		$sql = "SELECT * FROM `product` WHERE `product_id`  = '$product_id'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	 	return $row['quantity'];
+	 	return $row['product_quantity'];
 	}
 
 	public function agents($conn)

@@ -30,33 +30,26 @@ $(document).ready(function () {
                     "aaData": data,
                     "scrollX": true,
                     "aoColumns": [
-                        { "sTitle": "Agent ID", "mData": "agent_id" },
-                        { "sTitle": "Agent Name", "mData": "fullname" },
-                        { "sTitle": "Agent Name", "mData": "product_name" },
-                        { "sTitle": "Agent Name", "mData": "product_price" },
-                        { "sTitle": "Agent Name", "mData": "quantity" },
-                        { "sTitle": "Agent Name", "mData": "total_amount" },
-                        { "sTitle": "Agent Name", "mData": "amount_paid" },
-                        { "sTitle": "Agent Name", "mData": "customer_name" },
-                        { "sTitle": "Agent Name", "mData": "payment_type" },
+                        { "sTitle": "Product Name", "mData": "product_name" },
+                        { "sTitle": "Product Price", "mData": "product_price" },
+                        { "sTitle": "Litres", "mData": "product_quantity" },
+                        { "sTitle": "Total Amount", "mData": "total_amount" },
+                        { "sTitle": "Amount Paid", "mData": "amount_paid" },
+                        { "sTitle": "Amount Owing", "mData": "amount_owing" },
+                        { "sTitle": "Coustomer Name", "mData": "customer_name" },
+                        { "sTitle": "Payment Type", "mData": "payment_type" },
                         {
                             "sTitle": "Status", "mData": "status", "render":
                                 function (mData, type, row, meta) {
                                     if (mData == "Owing") {
-                                        return '<span class="badge bg-success">Owing</span>'
+                                        return '<span class="badge bg-danger">Owing</span>'
                                     } else if (mData == "Y") {
-                                        return '<span class="badge bg-danger">No Debt</span>'
+                                        return '<span class="badge bg-success">No Debt</span>'
                                     }
 
                                 }
                         },
-                        {
-                            "sTitle": "Edit",
-                            "mData": "category_id",
-                            "render": function (mData, type, row, meta) {
-                                return '<button class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1 edit" data = ' + mData + '></i> Edit</button>'
-                            }
-                        },
+                        
                         {
                             "sTitle": "Delete",
                             "mData": "category_id",
@@ -73,6 +66,36 @@ $(document).ready(function () {
             }
         });
     }
+
+
+
+    fetchProduct()
+    function fetchProduct() {
+
+        $.ajax({
+            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
+            type: 'POST',
+            dataType: 'json',
+            // data: {product_id: product},
+            success: function (data) {
+                console.log(data)
+                let name = $('#product_name');
+                name.empty();
+                name.append('<option selected="true" disabled>--Select Product--</option>');
+                name.prop('selectedIndex', 0);
+                for (var i = 0; i < data.length; i++) {
+                    name.append($('<option></option>').attr('value', data[i].product_id).text(data[i].product_name));
+
+                }
+
+            },
+            error: function (xhr, status, errorThrown) {
+                sweet('error', 'Network error', 'Check network and try again')
+
+            }
+        });
+    }
+
 
 
 })

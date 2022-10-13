@@ -60,9 +60,9 @@ $(document).ready(function () {
 
     }
 
-    fetchProduct()
+    fetchStaff()
 
-    function fetchProduct() {
+    function fetchStaff() {
         $.ajax({
             url: 'http://localhost/chimerk_v2/inc/services/FetchAllStaffAjax.php',
             type: 'POST',
@@ -100,21 +100,17 @@ $(document).ready(function () {
                         },
                         {
                             "sTitle": "Edit",
-                            "mData": "category_id",
+                            "mData": "staff_id",
                             "render": function (mData, type, row, meta) {
                                 return '<button class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1 edit" data = ' + mData + '></i> Edit</button>'
                             }
                         },
                         {
-                            "sTitle": "Action", "mData": "active", "render":
-                                function (mData, type, row, meta) {
-                                    if (mData == "Y") {
-                                        return '<button class="btn btn-sm btn-white text-warning me-2" data = ' + mData + '>Disable</button>'
-                                    } else if (mData == "N") {
-                                        return '<button class="btn btn-sm btn-white text-success me-2" data = ' + mData + '>Enable</button>'
-                                    }
-
-                                }
+                            "sTitle": "Delete",  
+                            "mData": "staff_id", 
+                            "render": function (mData, type, row, meta) {
+                                return '<button class="btn btn-sm btn-white text-danger me-2 delete"data = ' + mData + ' ><i class="far fa-edit me-1 " ></i> Delete</button>'
+                            }
                         }
                     ]
                 });
@@ -130,9 +126,9 @@ $(document).ready(function () {
     $('#datatables-buttons').on('click', function (event) {
         let e1 = event.target.getAttribute("id");
         if (event.target.classList.contains("delete")) {
-            var product_id = event.target.getAttribute("data");
-            console.log("View From " + product_id)
-            DeleteProductByID(product_id)
+            var staff_id = event.target.getAttribute("data");
+            console.log("View From " + staff_id)
+            DeleteProductByID(staff_id)
         }
 
     })
@@ -148,15 +144,15 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: 'http://localhost/chimerk_v2/inc/services/UpdateProductByIdAjax.php',
+                    url: 'http://localhost/chimerk_v2/inc/services/disableStaffAjax.php',
                     method: 'POST',
-                    data: { product_id: product },
+                    data: { staff_id: product },
                     success: function (response) {
-                        fetchProduct()
-                        // console.log(response)
+                        fetchStaff()
+                        console.log(response)
                         Swal.fire(
-                            'Deleted!',
-                            'Product Was Deleted Successfully.',
+                            'Disabled!',
+                            'Staff Disabled Successfully.',
                             'success'
                         )
                         

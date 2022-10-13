@@ -27,8 +27,8 @@ include_once('header.php');
                                     <div class="row">
                                     <div class="mb-3 col-md-6">
 												<label class="form-label">Select Product</label>
-												<select id="inputState" class="form-control" id="product_name" name="product_name">
-													<option>Ethanol</option>
+												<select class="form-control" id="product_name" name="product_name">
+													<!-- <option value="Ethanol">Ethanol</option> -->
 													<!-- <option>...</option> -->
 												</select>
 											</div>

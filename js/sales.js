@@ -13,8 +13,8 @@ $(document).ready(function () {
     $('#create_sales').on('click', function (e) {
         e.preventDefault()
 
-        // var product_id = $('#product_names').val()
-        var product_name = $('#product_name').val()
+        var product_id = $('#product_name option:selected').val()
+        var product_name = $('#product_name option:selected').text()
         var product_price = $('#product_price').val()
         var product_quantity = $('#product_quantity').val()
         var total_amount = $('#total_amount').val()
@@ -26,8 +26,8 @@ $(document).ready(function () {
             sweet('question', 'Empty fields', 'Empty fields detected, please try again')
         } else {
             createSales(agent_id, agent_name, product_name, product_price, product_quantity, total_amount, amount_paid, 
-                amount_owing, customer_name, payment_type);
-                // , product_id
+                amount_owing, customer_name, payment_type, product_id);
+                // 
         }
 
     })
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 
     function createSales(agent_id, agent_name,  product_name, product_price, product_quantity, total_amount, amount_paid, 
-        amount_owing, customer_name, payment_type) {
+        amount_owing, customer_name, payment_type, product_id) {
         $('#create_sales').text('Loading .....');
         $('#create_sales').attr('disabled', true);
         $.ajax({
@@ -53,8 +53,8 @@ $(document).ready(function () {
                 amount_paid: amount_paid,
                 amount_owing: amount_owing,
                 customer_name: customer_name,
-                payment_type: payment_type
-                // product_id: product_id,
+                payment_type: payment_type,
+                product_id: product_id
             },
             success: function (data) {
                 console.log(data)
@@ -123,6 +123,37 @@ $(document).ready(function () {
 
     });
 
+    fetchProduct()
+    function fetchProduct() {
+
+        $.ajax({
+            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
+            type: 'POST',
+            dataType: 'json',
+            // data: {product_id: product},
+            success: function (data) {
+                console.log(data)
+                let name = $('#product_name');
+                name.empty();
+                name.append('<option selected="true" disabled>--Select Product--</option>');
+                name.prop('selectedIndex', 0);
+                for (var i = 0; i < data.length; i++) {
+                    name.append($('<option></option>').attr('value', data[i].product_id).text(data[i].product_name));
+
+                }
+
+            },
+            error: function (xhr, status, errorThrown) {
+                sweet('error', 'Network error', 'Check network and try again')
+
+            }
+        });
+    }
+
+
+
+
+
     fetchSalesById(agent_id) 
     
 
@@ -151,7 +182,7 @@ $(document).ready(function () {
                     "aoColumns": [
                         { "sTitle": "Product Name", "mData": "product_name" },
                         { "sTitle": "Product Price", "mData": "product_price" },
-                        { "sTitle": "Quantity", "mData": "quantity" },
+                        { "sTitle": "Liters", "mData": "product_quantity" },
                         { "sTitle": "Total Amount", "mData": "total_amount" },
                         { "sTitle": "Amount Paid", "mData": "amount_paid" },
                         { "sTitle": "Coustomer Name", "mData": "customer_name" },
@@ -160,9 +191,9 @@ $(document).ready(function () {
                             "sTitle": "Status", "mData": "status", "render":
                                 function (mData, type, row, meta) {
                                     if (mData == "Owing") {
-                                        return '<span class="badge bg-success">Owing</span>'
+                                        return '<span class="badge bg-danger">Owing</span>'
                                     } else if (mData == "Y") {
-                                        return '<span class="badge bg-danger">No Debt</span>'
+                                        return '<span class="badge bg-success">No Debt</span>'
                                     }
 
                                 }

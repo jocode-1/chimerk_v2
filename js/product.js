@@ -29,7 +29,7 @@ $(document).ready(function () {
             data: {
                 product_name: product_name,
                 cost_price: cost_price,
-                quantity: quantity,
+                product_quantity: quantity,
                 selling_price: selling_price,
                 date: product_date,
                 product_category: product_category,
@@ -88,7 +88,7 @@ $(document).ready(function () {
                     "aoColumns": [
                         { "sTitle": "Product Name", "mData": "product_name" },
                         { "sTitle": "Cost Price", "mData": "cost_price" },
-                        { "sTitle": "Quantity", "mData": "quantity" },
+                        { "sTitle": "Litres", "mData": "product_quantity" },
                         { "sTitle": "Selling Price", "mData": "selling_price" },
                         { "sTitle": "Product Date", "mData": "date" },
                         { "sTitle": "Product Category", "mData": "product_category" },
