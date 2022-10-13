@@ -25,7 +25,7 @@ class PortalUtility
 	{
 		$json = array();
 
-		$query = "SELECT email, password, role from staff where email = '" . $email . "' and password = '" . $password . "'";
+		$query = "SELECT email, password, role from staff where active = 'Y' AND email = '" . $email . "' and password = '" . $password . "'";
 		$result = mysqli_query($conn, $query);
 		$r = mysqli_fetch_array($result);
 		if ($r > 0) {
@@ -147,7 +147,7 @@ class PortalUtility
 	{
 		$json = array();
 
-		$sqlSelect = "SELECT staff_id, fullname, email, password, address, r.role_name as role, phone, active FROM staff s, staff_role r WHERE r.role_id  = r.role_id";
+		$sqlSelect = "SELECT staff_id, fullname, email, password, address, r.role_name as role, phone, active FROM staff s, staff_role r WHERE r.role_id  = s.role";
 		$result = mysqli_query($conn, $sqlSelect);
 		while ($r = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$json[] = $r;
@@ -172,6 +172,18 @@ class PortalUtility
 	}
 
 
+	public function fetchAllSales($conn)
+	{
+		$json = array();
+
+		$sqlSelect = "SELECT * FROM `sales` ORDER BY timestamp";
+		$result = mysqli_query($conn, $sqlSelect);
+		while ($r = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+			$json[] = $r;
+		}
+
+		return json_encode($json, JSON_PRETTY_PRINT);
+	}
 	public function fetchSalesById($conn, $staff_id)
 	{
 		$json = array();

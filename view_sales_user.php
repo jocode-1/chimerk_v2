@@ -2,13 +2,13 @@
 
 
 include_once('inc/session.php');
-include_once('header2.php');
+include_once('header.php');
 
 ?>
 
 <main class="content">
 	<div class="container-fluid p-0">
-	<p id="staff_id" > <?php echo $userDetails['staff_id']; ?> </p>
+	<p id="staff_id" hidden> <?php echo $userDetails['staff_id']; ?> </p>
 
 		<h1 class="h3 mb-3">DataTables Buttons</h1>
 
@@ -64,7 +64,7 @@ include_once('header2.php');
 
 <script src="js/sweet.js"></script>
 <script src="js/app.js"></script>
-<script src="js/view_sales.js"></script>
+<script src="js/view_my_sales.js"></script>
 
 <!-- <script>
 		document.addEventListener("DOMContentLoaded", function() {

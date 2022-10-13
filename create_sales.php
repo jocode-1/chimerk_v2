@@ -27,7 +27,7 @@ include_once('header.php');
                                     <div class="row">
                                     <div class="mb-3 col-md-6">
 												<label class="form-label">Select Product</label>
-												<select id="inputState" class="form-control">
+												<select id="inputState" class="form-control" id="product_name" name="product_name">
 													<option>Ethanol</option>
 													<!-- <option>...</option> -->
 												</select>
@@ -79,9 +79,9 @@ include_once('header.php');
 												<label class="form-label">Payment Type</label>
 												<select id="payment_type" name="payment_type" class="form-control">
                                                 <option selected>... Select Payment Type</option>
-													<option value="1"> Cash</option>
-													<option value="2"> Bank / Transfer</option>
-													<option value="3"> On Credit</option>
+													<option value="Cash"> Cash</option>
+													<option value="Bank / Transfer"> Bank / Transfer</option>
+													<option value="On Credit"> On Credit</option>
 												</select>
 											</div>
 

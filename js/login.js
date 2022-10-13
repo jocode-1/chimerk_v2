@@ -48,7 +48,7 @@ $(document).ready(function () {
 						}else{
 							$("#login").val('LOGIN');
 							$("#login").attr('disabled', false);
-              sweet('question', 'Oops!', 'E-mail or Password is Incorrect ')
+              sweet('error', 'Oops!', 'Login Credentails Incorrect or You have disabled  ')
 						}
 
 					}

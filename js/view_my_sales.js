@@ -1,15 +1,22 @@
 
 $(document).ready(function () {
 
-    fetchSalesById() 
+    var agent_id = document.getElementById("staff_id").innerHTML;
     
 
-    function fetchSalesById() 
+    fetchSalesById(agent_id) 
+    
+
+    function fetchSalesById(agent_id) 
     {
+        console.log(agent_id)
+
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchAllSalesAjax.php',
+            url: 'http://localhost/chimerk_v2/inc/services/FetchSalesByIdAjax.php',
             type: 'POST',
             dataType: 'json',
+            data: {staff_id: agent_id},
+
             success: function (data) {
                 console.log(data)
                 $("#datatables-buttons").DataTable({
@@ -25,13 +32,13 @@ $(document).ready(function () {
                     "aoColumns": [
                         { "sTitle": "Agent ID", "mData": "agent_id" },
                         { "sTitle": "Agent Name", "mData": "fullname" },
-                        { "sTitle": "Product Name", "mData": "product_name" },
-                        { "sTitle": "Product Price", "mData": "product_price" },
-                        { "sTitle": "Quantity", "mData": "quantity" },
-                        { "sTitle": "Total Amount", "mData": "total_amount" },
-                        { "sTitle": "Amount Paid", "mData": "amount_paid" },
-                        { "sTitle": "Coustomer Name", "mData": "customer_name" },
-                        { "sTitle": "Payment Type", "mData": "payment_type" },
+                        { "sTitle": "Agent Name", "mData": "product_name" },
+                        { "sTitle": "Agent Name", "mData": "product_price" },
+                        { "sTitle": "Agent Name", "mData": "quantity" },
+                        { "sTitle": "Agent Name", "mData": "total_amount" },
+                        { "sTitle": "Agent Name", "mData": "amount_paid" },
+                        { "sTitle": "Agent Name", "mData": "customer_name" },
+                        { "sTitle": "Agent Name", "mData": "payment_type" },
                         {
                             "sTitle": "Status", "mData": "status", "render":
                                 function (mData, type, row, meta) {
@@ -66,5 +73,6 @@ $(document).ready(function () {
             }
         });
     }
+
 
 })

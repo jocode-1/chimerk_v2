@@ -50,7 +50,7 @@ include_once('header.php');
 								</div>
 								<div class="mb-3">
 												<label class="form-label">Status</label>
-												<select class="form-control" id="status" name="status">
+												<select id="status" name="status" class="form-control" >
 													<option value="1">Active</option>
 													<option value="2">Deactive</option>
 												</select>
