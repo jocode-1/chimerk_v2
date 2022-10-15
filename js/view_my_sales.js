@@ -12,7 +12,7 @@ $(document).ready(function () {
         console.log(agent_id)
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchSalesByIdAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchSalesByIdAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {staff_id: agent_id},
@@ -73,7 +73,7 @@ $(document).ready(function () {
     function fetchProduct() {
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
+            url: 'http://donchimerk.org/services/FetchProductAjax.php',
             type: 'POST',
             dataType: 'json',
             // data: {product_id: product},

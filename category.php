@@ -9,7 +9,7 @@ include_once('header.php');
 <main class="content">
 	<div class="container-fluid p-0">
 
-		<h1 class="h3 mb-3">DataTables Buttons</h1>
+		<h1 class="h3 mb-3">Category</h1>
 
 		
 		<div class="row">
@@ -51,8 +51,9 @@ include_once('header.php');
 								<div class="mb-3">
 												<label class="form-label">Status</label>
 												<select id="status" name="status" class="form-control" >
-													<option value="1">Active</option>
-													<option value="2">Deactive</option>
+													<option selected> .....Select Status.....</option>
+													<option value="1"> Active</option>
+													<option value="2"> Deactive</option>
 												</select>
 											</div>
 								

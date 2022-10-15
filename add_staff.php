@@ -8,15 +8,15 @@ include_once('header.php');
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Add Staff</h1>
+					<h1 class="h3 mb-3">Staff</h1>
 
 					<div class="row">
 
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">Form row</h5>
-									<h6 class="card-subtitle text-muted">Bootstrap column layout.</h6>
+									<h5 class="card-title">Add Staff</h5>
+									<!--<h6 class="card-subtitle text-muted">Bootstrap column layout.</h6>-->
 								</div>
 								<div class="card-body">
 									<form>
@@ -36,8 +36,9 @@ include_once('header.php');
 											<div class="mb-3 col-md-6">
 												<label class="form-label">Ansign Role</label>
 												<select class="form-control" id="role" name="role">
-													<option value="1"> Admin</option>
-													<option value="2"> Vendor</option>
+													<option selected> ....Please Select Role....</option>
+													<option value="3"> Admin</option>
+													<option value="1"> Vendor</option>
 												</select>
 											</div>
 

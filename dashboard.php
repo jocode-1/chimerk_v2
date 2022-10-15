@@ -1,7 +1,9 @@
 <?php
 
-// include_once('inc/session.php');
-include_once('header.php');
+
+include_once('inc/session.php');
+require('header.php');
+
 
 $query_03 = "select product_quantity  FROM product";
 $rez = mysqli_query($conn, $query_03);
@@ -15,16 +17,18 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
   $total3 = $rows['total'];
 }
 
-$query_04 = "select product_quantity  FROM sales";
+$query_04 = "select sum(product_quantity) AS total FROM sales";
 $rez = mysqli_query($conn, $query_04);
 while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
-  $total4 = $rows['product_quantity'];
+  $total4 = $rows['total'];
 }
 $query_06 = "select count(*) AS total  FROM sales";
 $rez = mysqli_query($conn, $query_06);
 while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
   $total6 = $rows['total'];
 }
+
+
 
 ?>
 
@@ -93,11 +97,11 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
 												<span class="text-muted">Since last week</span> -->
 											</div>
 										</div>
-										<div class="d-inline-block ms-3">
-											<div class="stat">
-												<i class="align-middle text-success" data-feather="dollar-sign"></i>
-											</div>
-										</div>
+										<!--<div class="d-inline-block ms-3">-->
+										<!--	<div class="stat">-->
+										<!--		<i class="align-middle text-success" data-feather="dollar-sign"></i>-->
+										<!--	</div>-->
+										<!--</div>-->
 									</div>
 								</div>
 							</div>
@@ -116,7 +120,7 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
 										</div>
 										<div class="d-inline-block ms-3">
 											<div class="stat">
-												<i class="align-middle text-danger" data-feather="shopping-bag"></i>
+												<i class="align-middle text-danger" data-feather="hash"></i>
 											</div>
 										</div>
 									</div>
@@ -133,11 +137,11 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
 											<div class="mb-0">
 											</div>
 										</div>
-										<div class="d-inline-block ms-3">
-											<div class="stat">
-												<i class="align-middle text-info" data-feather="dollar-sign"></i>
-											</div>
-										</div>
+										<!--<div class="d-inline-block ms-3">-->
+										<!--	<div class="stat">-->
+										<!--		<i class="align-middle text-info" data-feather="dollar-sign"></i>-->
+										<!--	</div>-->
+										<!--</div>-->
 									</div>
 								</div>
 							</div>

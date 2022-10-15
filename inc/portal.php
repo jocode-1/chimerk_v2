@@ -41,7 +41,7 @@ class PortalUtility
 
 
 
-	public function create_category($conn, $category_name, $status, $active )
+	public function create_category($conn, $category_name, $status )
 	{
 		$status = "";
 		$category_id = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 5);
@@ -103,13 +103,13 @@ class PortalUtility
 		return json_encode($json, JSON_PRETTY_PRINT);
 	}
 
-	public function createStaff($conn, $full_name, $email, $password, $address, $role, $phone)
+	public function createStaff($conn, $full_name, $email, $password, $address, $phone, $role)
 	{
 		$status = "";
 		$staff_id = substr(str_shuffle(str_repeat("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", 5)), 0, 5);
 		$password = substr(str_shuffle(str_repeat("0123456789abcdefghiABCDEFGHIJKLMNOPQRSTUVWXYZ", 4)), 0, 5);
-		$sql = "INSERT INTO `staff`(`staff_id`, `fullname`, `email`, `password`, `address`, `role`, `active`, `phone`)
-		 VALUES ('$staff_id', '$full_name', '$email', '$password', '$address', '$role', '$phone', 'Y')";
+		$sql = "INSERT INTO `staff`(`staff_id`, `fullname`, `email`, `password`, `address`, `phone`, `role`, `active`)
+		 VALUES ('$staff_id', '$full_name', '$email', '$password', '$address', '$phone', ' $role', 'Y')";
 		if (mysqli_query($conn, $sql)) {
 			$status = json_encode(array("message" => "success","staff_id"=>$staff_id), JSON_PRETTY_PRINT);
 		} else {
@@ -148,7 +148,8 @@ class PortalUtility
 	{
 		$json = array();
 
-		$sqlSelect = "SELECT staff_id, fullname, email, password, address, r.role_name as role, phone, active FROM staff s, staff_role r WHERE r.role_id  = s.role";
+// 		$sqlSelect = "SELECT staff_id, fullname, email, password, address, r.role_name as role, phone, active FROM staff s, staff_role r WHERE s.role = r.role_id";
+		$sqlSelect = "SELECT * FROM staff ORDER BY stampdate";
 		$result = mysqli_query($conn, $sqlSelect);
 		while ($r = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			$json[] = $r;

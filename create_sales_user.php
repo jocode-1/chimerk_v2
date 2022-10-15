@@ -1,7 +1,7 @@
 <?php
 
 include_once('inc/session.php');
-include_once('header.php');
+include_once('header2.php');
 
 ?>
 
@@ -20,7 +20,6 @@ include_once('header.php');
 							<div class="card">
 								<div class="card-header">
 									<h5 class="card-title">Create Sales</h5>
-									<h6 class="card-subtitle text-muted">Bootstrap column layout.</h6>
 								</div>
 								<div class="card-body">
 									<form>

@@ -8,29 +8,32 @@ $(document).ready(function () {
         var email = $('#email').val()
         // var password = $('#password').val()
         var address = $('#address').val()
+        var role = $('#role').val()
         var phone = $('#phone').val()
+        
         var role = $('#role').val()
         if (fullname == '' || email == '' || address == '' || phone == '' ) {
             sweet('question', 'Empty fields', 'Empty fields detected, please try again')
         } else {
-            createStaff(fullname, email, address, phone, role);
+            createStaff(fullname, email, address, role, phone);
         }
 
     })
 
-    function createStaff(fullname, email, address, phone, role) {
+    function createStaff(fullname, email, address, role, phone) {
         $('#submit').text('Loading .....');
         $('#submit').attr('disabled', true);
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/CreateStaffAjax.php',
+            url: 'http://donchimerk.org/inc/services/CreateStaffAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {
                 fullname: fullname,
                 email: email,
                 address: address,
-                phone: phone,
-                role: role
+                role: role,
+                phone: phone
+                
             },
             success: function (data) {
                 console.log(data)
@@ -64,7 +67,7 @@ $(document).ready(function () {
 
     function fetchStaff() {
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchAllStaffAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchAllStaffAjax.php',
             type: 'POST',
             dataType: 'json',
 
@@ -144,7 +147,7 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: 'http://localhost/chimerk_v2/inc/services/disableStaffAjax.php',
+                    url: 'http://donchimerk.org/inc/services/disableStaffAjax.php',
                     method: 'POST',
                     data: { staff_id: product },
                     success: function (response) {
@@ -172,7 +175,7 @@ $(document).ready(function () {
     function fetchCategory() {
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchCategoryAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchCategoryAjax.php',
             type: 'POST',
             dataType: 'json',
             success: function (data) {

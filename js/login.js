@@ -25,7 +25,7 @@ $(document).ready(function () {
   
     function login() {
       $.ajax({
-        url: 'http://localhost/chimerk_v2/inc/services/loginAjax.php',
+        url: 'http://donchimerk.org/inc/services/loginAjax.php',
         method: "POST",
         dataType: "JSON",
         data: {

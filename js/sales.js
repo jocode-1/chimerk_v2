@@ -40,7 +40,7 @@ $(document).ready(function () {
         $('#create_sales').text('Loading .....');
         $('#create_sales').attr('disabled', true);
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/CreateSalesAjax.php',
+            url: 'http://donchimerk.org/inc/services/CreateSalesAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -127,7 +127,7 @@ $(document).ready(function () {
     function fetchProduct() {
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchProductAjax.php',
             type: 'POST',
             dataType: 'json',
             // data: {product_id: product},
@@ -162,7 +162,7 @@ $(document).ready(function () {
         console.log(agent_id)
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchSalesByIdAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchSalesByIdAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {staff_id: agent_id},

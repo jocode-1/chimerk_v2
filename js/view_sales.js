@@ -7,7 +7,7 @@ $(document).ready(function () {
     function fetchSalesById() 
     {
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchAllSalesAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchAllSalesAjax.php',
             type: 'POST',
             dataType: 'json',
             success: function (data) {
@@ -32,6 +32,7 @@ $(document).ready(function () {
                         { "sTitle": "Amount Paid", "mData": "amount_paid" },
                         { "sTitle": "Coustomer Name", "mData": "customer_name" },
                         { "sTitle": "Payment Type", "mData": "payment_type" },
+                        { "sTitle": "Sales Date", "mData": "timestamp" },
                         {
                             "sTitle": "Status", "mData": "status", "render":
                                 function (mData, type, row, meta) {

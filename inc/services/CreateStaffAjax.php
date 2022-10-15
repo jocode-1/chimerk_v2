@@ -13,8 +13,9 @@ $full_name = trim(mysqli_real_escape_string($conn, !empty($_POST['fullname']) ? 
 $email = trim(mysqli_real_escape_string($conn, !empty($_POST['email']) ? $_POST['email'] : ""));
 $password = trim(mysqli_real_escape_string($conn, !empty($_POST['password']) ? $_POST['password'] : ""));
 $address = trim(mysqli_real_escape_string($conn, !empty($_POST['address']) ? $_POST['address'] : ""));
-$role = trim(mysqli_real_escape_string($conn, !empty($_POST['role']) ? $_POST['role'] : ""));
 $phone = trim(mysqli_real_escape_string($conn, !empty($_POST['phone']) ? $_POST['phone'] : ""));
+$role = trim(mysqli_real_escape_string($conn, !empty($_POST['role']) ? $_POST['role'] : ""));
+
 
 
 $user = $portal->createStaff($conn, $full_name, $email, $password, $address, $phone, $role );

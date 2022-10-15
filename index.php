@@ -6,10 +6,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="description" content="Don Chimerk ">
 	<meta name="author" content="Bootlab">
 
-	<title>Sign In | AppStack - Admin &amp; Dashboard Template</title>
+	<title>Sign In | Don Chimerk </title>
 
 	<link rel="canonical" href="pages-sign-in.html" />
 	<link rel="shortcut icon" href="img/favicon.ico">
@@ -23,7 +23,6 @@
 	<!-- BEGIN SETTINGS -->
 	<!-- Remove this after purchasing -->
 	<link href="css/light.css" rel="stylesheet">
-	<script src="js/settings.js"></script>
 	<!-- END SETTINGS -->
 <script>
     (function(h,o,t,j,a,r){
@@ -59,9 +58,9 @@
 						<div class="d-table-cell align-middle">
 
 							<div class="text-center mt-4">
-								<h1 class="h2">Welcome back, Chris</h1>
+								<!--<h1 class="h2">Welcome back, Chris</h1>-->
 								<p class="lead">
-									Sign in to your account to continue
+									Sign in to your account
 								</p>
 							</div>
 
@@ -69,7 +68,7 @@
 								<div class="card-body">
 									<div class="m-sm-4">
 										<div class="text-center">
-											<img src="img/avatars/avatar.jpg" alt="Chris Wood" class="img-fluid rounded-circle" width="132" height="132" />
+											<!--<img src="img/avatars/avatar.jpg" alt="Chris Wood" class="img-fluid rounded-circle" width="132" height="132" />-->
 										</div>
 										<!-- <form> -->
 											<div class="mb-3">

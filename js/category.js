@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     function fetchCategory() {
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchCategoryAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchCategoryAjax.php',
             type: 'POST',
             dataType: 'json',
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: 'http://localhost/chimerk_v2/inc/services/UpdateCategoryByIdAjax.php',
+                    url: 'http://donchimerk.org/inc/services/UpdateCategoryByIdAjax.php',
                     method: 'POST',
                     data: { category_id: category_id },
                     success: function (response) {
@@ -106,25 +106,25 @@ $(document).ready(function () {
     $('#submit').on('click', function (e) {
         e.preventDefault()
         var category_name = $('#category_name').val()
-        var status = $('#status').val()
-        if (category_name == '' || status == '' ) {
+        var payment_status = $('#status').val()
+        if (category_name == '' || payment_status == '' ) {
             sweet('question', 'Empty fields', 'Empty fields detected, please try again')
         } else {
-            create_category(category_name, status);
+            create_category(category_name, payment_status)
         }
 
     })
 
-    function create_category(category_name, status) {
+    function create_category(category_name, payment_status) {
         $('#submit').text('Loading .....');
         $('#submit').attr('disabled', true);
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/CreateCategoryAjax.php',
+            url: 'http://donchimerk.org/inc/services/CreateCategoryAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {
                 category_name: category_name,
-                status: status
+                status: payment_status
             },
             success: function (data) {
                 console.log(data)

@@ -23,7 +23,7 @@ $(document).ready(function () {
         $('#submit').text('Loading .....');
         $('#submit').attr('disabled', true);
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/CreateProductAjax.php',
+            url: 'http://donchimerk.org/inc/services/CreateProductAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
     function fetchProduct() {
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchProductAjax.php',
             type: 'POST',
             dataType: 'json',
 
@@ -149,7 +149,7 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: 'http://localhost/chimerk_v2/inc/services/UpdateProductByIdAjax.php',
+                    url: 'http://donchimerk.org/inc/services/UpdateProductByIdAjax.php',
                     method: 'POST',
                     data: { product_id: product },
                     success: function (response) {
@@ -177,7 +177,7 @@ $(document).ready(function () {
     function fetchCategory() {
 
         $.ajax({
-            url: 'http://localhost/chimerk_v2/inc/services/FetchCategoryAjax.php',
+            url: 'http://donchimerk.org/inc/services/FetchCategoryAjax.php',
             type: 'POST',
             dataType: 'json',
             success: function (data) {

@@ -5,7 +5,7 @@ include('inc/portal.php'); //database connection
 
 
 if (!isset($_SESSION['login_user'])) {
-    header('Location: /chimerk_v2'); 
+    header('Location: /index.php'); 
 }
 
 // Stored Session
@@ -22,3 +22,4 @@ $result = mysqli_query($conn, $query);
 
 // Associative array
 $userDetails = mysqli_fetch_assoc($result); 
+// $userDetails2 = ['staff_id']; 

@@ -1,18 +1,24 @@
 <?php
 
-// include_once('inc/session.php');
+include_once('inc/session.php');
 include_once('header2.php');
 
-$query_03 = "select product_quantity  FROM product";
+$query_03 = "select product_quantity FROM product";
 $rez = mysqli_query($conn, $query_03);
 while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
   $total = $rows['product_quantity'];
 }
 
-$query_05 = "select sum(amount_paid) AS total  FROM sales";
+$query_05 = "select sum(amount_paid) AS total FROM sales";
 $rez = mysqli_query($conn, $query_05);
 while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
   $total3 = $rows['total'];
+}
+
+$query_06 = "select count(*) AS total FROM sales WHERE agent_id = '$userDetails'";
+$rez = mysqli_query($conn, $query_06);
+while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
+  $total6 = $rows['total'];
 }
 
 ?>
@@ -33,6 +39,7 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
 									<i class="align-middle mt-n1" data-feather="calendar"></i> Today
 								</a>
 
+<p id="staff_id" hidden> <?php echo $userDetails['staff_id']; ?> </p>
 								<div class="dropdown-menu dropdown-menu-end">
 									<h6 class="dropdown-header">Settings</h6>
 									<a class="dropdown-item" href="#">Action</a>
@@ -96,8 +103,8 @@ while ($rows = mysqli_fetch_array($rez, MYSQLI_ASSOC)) {
 								<div class="card-body py-4">
 									<div class="d-flex align-items-start">
 										<div class="flex-grow-1">
-											<h3 class="mb-2"><?php echo $total3; ?></h3>
-											<p class="mb-2">Total Money Paid</p>
+											<h3 class="mb-2"><?php echo $total6; ?></h3>
+											<p class="mb-2">My Sales</p>
 											<div class="mb-0">
 												<!-- <span class="badge badge-soft-danger me-2"> -4.25% </span>
 												<span class="text-muted">Since last week</span> -->

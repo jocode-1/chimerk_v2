@@ -20,7 +20,6 @@ include_once('header.php');
 							<div class="card">
 								<div class="card-header">
 									<h5 class="card-title">Create Sales</h5>
-									<h6 class="card-subtitle text-muted">Bootstrap column layout.</h6>
 								</div>
 								<div class="card-body">
 									<form>
@@ -36,10 +35,14 @@ include_once('header.php');
 												<label class="form-label">Product Price</label>
                                                 <select id="product_price" name="product_price" class="form-control">
                                                 <option selected>... Select Product Price ...</option>
-													<option> 650</option>
-													<option> 670 </option>
 													<option> 700 </option>
+													<option> 710 </option>
+													<option> 720 </option>
+													<option> 730 </option>
+													<option> 740 </option>
 													<option> 750 </option>
+													<option> 780 </option>
+													<option> 800 </option>
 												</select>
 											</div>
 											</div>

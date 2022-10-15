@@ -4,7 +4,13 @@
  class database{
 
 
-   private $host = "localhost";
+//    private $host = "localhost";
+//     private $db_name = "donchime_chimerk";
+//     private $username = "donchime_don_chmeck";
+//     private $password = "don_chmeck../";
+//     public $conn;
+    
+  private $host = "localhost";
     private $db_name = "chimerk_v2";
     private $username = "root";
     private $password = "";
