@@ -22,11 +22,12 @@ $(document).ready(function () {
         var amount_owing = $('#amount_owing').val()
         var customer_name = $('#customer_name').val()
         var payment_type = $('#payment_type').val()
+        var date = $('#date').val()
         if (product_name == '' || product_price == '' || product_quantity == '' || amount_paid == '' || customer_name == '') {
             sweet('question', 'Empty fields', 'Empty fields detected, please try again')
         } else {
             createSales(agent_id, agent_name, product_name, product_price, product_quantity, total_amount, amount_paid, 
-                amount_owing, customer_name, payment_type, product_id);
+                amount_owing, customer_name, payment_type, date, product_id);
                 // 
         }
 
@@ -36,11 +37,11 @@ $(document).ready(function () {
 
 
     function createSales(agent_id, agent_name,  product_name, product_price, product_quantity, total_amount, amount_paid, 
-        amount_owing, customer_name, payment_type, product_id) {
+        amount_owing, customer_name, payment_type, date, product_id) {
         $('#create_sales').text('Loading .....');
         $('#create_sales').attr('disabled', true);
         $.ajax({
-            url: 'http://donchimerk.org/inc/services/CreateSalesAjax.php',
+            url: 'http://localhost/chimerk_v2/inc/services/CreateSalesAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -54,6 +55,7 @@ $(document).ready(function () {
                 amount_owing: amount_owing,
                 customer_name: customer_name,
                 payment_type: payment_type,
+                date: date,
                 product_id: product_id
             },
             success: function (data) {
@@ -74,6 +76,9 @@ $(document).ready(function () {
                 } else {
                     sweet('error', 'Oops', 'There was an error, please try again')
                 }
+
+                product_id = data.product_id;
+                window.location = "print.php?sales_id=" + product_id;
 
             },
             error: function (xhr, status, errorThrown) {
@@ -127,7 +132,7 @@ $(document).ready(function () {
     function fetchProduct() {
 
         $.ajax({
-            url: 'http://donchimerk.org/inc/services/FetchProductAjax.php',
+            url: 'http://localhost/chimerk_v2/inc/services/FetchProductAjax.php',
             type: 'POST',
             dataType: 'json',
             // data: {product_id: product},
@@ -162,7 +167,7 @@ $(document).ready(function () {
         console.log(agent_id)
 
         $.ajax({
-            url: 'http://donchimerk.org/inc/services/FetchSalesByIdAjax.php',
+            url: 'http://localhost/chimerk_v2/inc/services/FetchSalesByIdAjax.php',
             type: 'POST',
             dataType: 'json',
             data: {staff_id: agent_id},

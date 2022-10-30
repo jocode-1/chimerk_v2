@@ -19,10 +19,11 @@ $amount_paid = trim(mysqli_real_escape_string($conn, !empty($_POST['amount_paid'
 $amount_owing = trim(mysqli_real_escape_string($conn, !empty($_POST['amount_owing']) ? $_POST['amount_owing'] : ""));
 $customer_name = trim(mysqli_real_escape_string($conn, !empty($_POST['customer_name']) ? $_POST['customer_name'] : ""));
 $payment_type = trim(mysqli_real_escape_string($conn, !empty($_POST['payment_type']) ? $_POST['payment_type'] : ""));
+$date = trim(mysqli_real_escape_string($conn, !empty($_POST['date']) ? $_POST['date'] : ""));
 $product_id = trim(mysqli_real_escape_string($conn, !empty($_POST['product_id']) ? $_POST['product_id'] : ""));
 
 
 $user = $portal->createSales($conn, $agent_id, $agent_name, $product_name, $product_price,
- $product_quantity, $total_amount, $amount_paid, $amount_owing, $customer_name, $payment_type, $product_id);
+ $product_quantity, $total_amount, $amount_paid, $amount_owing, $customer_name, $payment_type, $date, $product_id);
 echo $user;
 

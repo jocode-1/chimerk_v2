@@ -8,10 +8,6 @@ include_once('header.php');
 
 <main class="content">
 	<div class="container-fluid p-0">
-	<p id="staff_id" hidden> <?php echo $userDetails['staff_id']; ?> </p>
-
-		<h1 class="h3 mb-3">DataTables Buttons</h1>
-
 		
 		<div class="row">
 			<div class="col-12">
@@ -53,7 +49,7 @@ include_once('header.php');
 			</div>
 			<div class="col-6 text-end">
 				<p class="mb-0">
-					&copy; 2022 - <a href="index.html" class="text-muted">Don Chimerk</a>
+					&copy; 2022 - <a href="index.html" class="text-muted">AppStack</a>
 				</p>
 			</div>
 		</div>
@@ -64,7 +60,7 @@ include_once('header.php');
 
 <script src="js/sweet.js"></script>
 <script src="js/app.js"></script>
-<script src="js/view_sales.js"></script>
+<script src="js/view_debt.js"></script>
 
 <!-- <script>
 		document.addEventListener("DOMContentLoaded", function() {

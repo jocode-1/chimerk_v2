@@ -8,9 +8,8 @@ include_once('header.php');
 
 <main class="content">
 	<div class="container-fluid p-0">
-	<p id="staff_id" hidden> <?php echo $userDetails['staff_id']; ?> </p>
 
-		<h1 class="h3 mb-3">DataTables Buttons</h1>
+		<h1 class="h3 mb-3">View Expenses </h1>
 
 		
 		<div class="row">
@@ -64,7 +63,7 @@ include_once('header.php');
 
 <script src="js/sweet.js"></script>
 <script src="js/app.js"></script>
-<script src="js/view_sales.js"></script>
+<script src="js/view_expenses.js"></script>
 
 <!-- <script>
 		document.addEventListener("DOMContentLoaded", function() {

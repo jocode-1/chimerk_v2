@@ -123,8 +123,8 @@
 						<ul id="documentation" class="sidebar-dropdown list-unstyled collapse "
 							data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link"
-									href="docs-introduction.html">Create Expenses</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="docs-installation.html">View Expenses</a></li>
+									href="create_expenses.php">Create Expenses</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="view_expenses.php">View Expenses</a></li>
 							
 						</ul>
 					</li>

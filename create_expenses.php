@@ -8,10 +8,8 @@ include_once('header.php');
 			<main class="content">
 				<div class="container-fluid p-0">
 
-                <p id="staff_id" hidden> <?php echo $userDetails['staff_id']; ?> </p>
-                <p id="fullname" hidden> <?php echo $userDetails['fullname']; ?> </p>
 
-					<h1 class="h3 mb-3">Sales</h1>
+					<h1 class="h3 mb-3"> Expenses</h1>
 
 					<div class="row">
 						
@@ -19,7 +17,7 @@ include_once('header.php');
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">Create Sales</h5>
+									<h5 class="card-title">Create Expenses</h5>
 								</div>
 								<div class="card-body">
 									<form>
