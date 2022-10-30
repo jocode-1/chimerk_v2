@@ -20,84 +20,55 @@ include_once('header.php');
 									<h5 class="card-title">Create Expenses</h5>
 								</div>
 								<div class="card-body">
-									<form>
-                                    <div class="row">
-                                    <div class="mb-3 col-md-6">
-												<label class="form-label">Select Product</label>
-												<select class="form-control" id="product_name" name="product_name">
-													<!-- <option value="Ethanol">Ethanol</option> -->
-													<!-- <option>...</option> -->
-												</select>
-											</div>
-                                            <div class="mb-3 col-md-6">
-												<label class="form-label">Product Price</label>
-                                                <select id="product_price" name="product_price" class="form-control">
-                                                <option selected>... Select Product Price ...</option>
-													<option> 700 </option>
-													<option> 710 </option>
-													<option> 720 </option>
-													<option> 730 </option>
-													<option> 740 </option>
-													<option> 750 </option>
-													<option> 780 </option>
-													<option> 800 </option>
-												</select>
-											</div>
-											</div>
 										<div class="row">
 											
 											<div class="mb-3 col-md-6">
-												<label class="form-label">Litres</label>
-												<input type="number" class="form-control" id="product_quantity" name="product_quantity"
-												min="1"	value="1">
+												<label class="form-label">Expenses Name</label>
+												<input type="text" class="form-control" id="exp_name" name="exp_name" >
 											</div>
                                             <div class="mb-3 col-md-6">
-											<label class="form-label" for="inputAddress">Total Amount</label>
-											<input type="number" class="form-control" id="total_amount" name="total_amount"
-											disabled>
+											<label class="form-label" for="inputAddress">Expenses Description</label>
+											<input type="text" class="form-control" id="exp_description" name="exp_description"
+											>
 										</div>
 										</div>
                                         <div class="row">
 										
 										<div class="mb-3 col-md-6">
-											<label class="form-label" for="inputAddress2">Amount Paid</label>
-											<input type="text" class="form-control" id="amount_paid" name="amount_paid"
-												placeholder="Enter Amount Paid ">
-										</div>
-                                        <div class="mb-3 col-md-6">
-												<label class="form-label" for="inputCity">Amount Owing</label>
-												<input type="number" class="form-control" id="amount_owing" name="amount_owing" disabled>
-											</div>
-</div>
-										<div class="row">
-											
-											
-											<div class="mb-3 col-md-6">
-												<label class="form-label" for="inputZip">Customer Name</label>
-												<input type="text" class="form-control" id="customer_name" name="customer_name">
-											</div>
-                                        <div class="mb-3 col-md-6">
-												<label class="form-label">Payment Type</label>
-												<select id="payment_type" name="payment_type" class="form-control">
-                                                <option selected>... Select Payment Type</option>
-													<option value="Cash"> Cash</option>
-													<option value="Bank / Transfer"> Bank / Transfer</option>
-													<option value="On Credit"> On Credit</option>
+												<label class="form-label">Expenses Category</label>
+                                                <select id="exp_category" name="exp_category" class="form-control">
+                                                <option selected>... Select Expenses Category ...</option>
+													<option value = "House"> House </option>
+													<option value = "Office" > Office </option>
+													
 												</select>
 											</div>
-
+                                        <div class="mb-3 col-md-6">
+												<label class="form-label" for="inputCity">Expenses Amount</label>
+												<input type="number" class="form-control" id="exp_amount" name="exp_amount">
+											</div>
 </div>
 										<div class="row">
 											
 											
-											<div class="mb-3 col-md-6">
-												<label class="form-label" for="inputZip">Sales Date</label>
-												<input type="date" class="form-control" id="date" name="date">
+										<div class="mb-3 col-md-6">
+												<label class="form-label">Money From</label>
+                                                <select id="money_from" name="money_from" class="form-control">
+                                                <option selected>... Select Money From ...</option>
+													<option value = "Cash"> Cash </option>
+													<option value = "Bank / Transfer" > Bank / Transfer </option>
+													
+												</select>
 											</div>
-                                        
+											<div class="mb-3 col-md-6">
+												<label class="form-label" for="inputZip">Expenses Date</label>
+												<input type="date" class="form-control" id="exp_date" name="exp_date">
+											</div>
+											
+
 </div>
-										<button type="submit" class="btn btn-primary" id="create_sales">Create Sales</button>
-									</form>
+										<button type="submit" class="btn btn-primary" id="create_exp">Create Expenses</button>
+									
 								</div>
 							</div>
 						</div>
@@ -129,7 +100,7 @@ include_once('header.php');
 						</div>
 						<div class="col-6 text-end">
 							<p class="mb-0">
-								&copy; 2022 - <a href="index.html" class="text-muted">AppStack</a>
+								&copy; 2022 - <a href="index.html" class="text-muted">Don Chimerk</a>
 							</p>
 						</div>
 					</div>
@@ -140,7 +111,7 @@ include_once('header.php');
 
 	<script src="js/sweet.js"></script>
 <script src="js/app.js"></script>
-<script src="js/sales.js"></script>
+<script src="js/expenses.js"></script>
 
 </body>
 

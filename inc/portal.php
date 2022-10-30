@@ -186,6 +186,7 @@ class PortalUtility
 
 		return json_encode($json, JSON_PRETTY_PRINT);
 	}
+
 	public function fetchSalesById($conn, $staff_id)
 	{
 		$json = array();
@@ -295,6 +296,19 @@ class PortalUtility
 			$status = json_encode(array("message"=>"error","expenses_id"=>"null"), JSON_PRETTY_PRINT);
 		}
 		return $status;
+	}
+
+	public function fetchAllExpenses($conn)
+	{
+		$json = array();
+
+		$sqlSelect = "SELECT * FROM `expenses`";
+		$result = mysqli_query($conn, $sqlSelect);
+		while ($r = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+			$json[] = $r;
+		}
+
+		return json_encode($json, JSON_PRETTY_PRINT);
 	}
 }
 
