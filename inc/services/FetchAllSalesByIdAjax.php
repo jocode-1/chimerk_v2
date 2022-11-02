@@ -8,7 +8,7 @@ header("Access-Control-Allow-Methods: POST");
 
 $portal = new PortalUtility();
 
-// $sales_id = trim(mysqli_real_escape_string($conn, !empty($_POST['sales_id']) ? $_POST['sales_id'] : ""));
+$sales_id = trim(mysqli_real_escape_string($conn, !empty($_POST['sales_id']) ? $_POST['sales_id'] : ""));
 
-$user = $portal->fetchDebts($conn);
+$user = $portal->fetchAllSalesById($conn, $sales_id);
 echo $user;

@@ -12,7 +12,13 @@ include_once('header.php');
 		<div class="row">
 			<div class="col-12">
 				<div class="card">
-					<div class="card-header">
+					<!-- <div class="card-header">
+						<button type="button" class="btn btn-primary my-1" data-bs-toggle="modal"
+							data-bs-target="#sizedModalSm">
+							Add Product
+						</button>
+
+					</div> -->
 
 					</div>
 					<div class="card-body">
@@ -21,6 +27,59 @@ include_once('header.php');
 
 						</table>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- BEGIN  modal -->
+
+		<div class="modal fade" id="sizedModalSm" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Edit Customers Sales</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="card">
+						<div class="card-body">
+								<div class="mb-3">
+									<label class="form-label">Product Name</label>
+									<input type="text" class="form-control"  id="product_name" name="product_name">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Product Price</label>
+									<input type="number" class="form-control" id="product_price" name="product_price">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Litres</label>
+									<input type="number" class="form-control" id="product_quantity" name="product_quantity">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Total Amount</label>
+									<input type="number" class="form-control"  id="total_amount" name="total_amount">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Amount Paid</label>
+									<input type="text" class="form-control" id="amount_paid" name="amount_paid">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Amount Owing</label>
+									<input type="text" class="form-control" id="amount_owing" name="amount_owing">
+								<div class="mb-3">
+									<label class="form-label">Customer Name</label>
+									<input type="text" class="form-control" id="customer_name" name="customer_name">
+								</div>
+							
+								<input type="submit" class="btn btn-primary" id="update_sales" value="Update Sales"></input>
+							
+						</div>
+
+
+					</div>
+					<!-- END  modal -->
+
+
 				</div>
 			</div>
 		</div>
@@ -60,7 +119,7 @@ include_once('header.php');
 
 <script src="js/sweet.js"></script>
 <script src="js/app.js"></script>
-<script src="js/view_debt.js"></script>
+<script src="js/view_debts.js"></script>
 
 <!-- <script>
 		document.addEventListener("DOMContentLoaded", function() {

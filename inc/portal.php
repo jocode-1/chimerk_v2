@@ -310,6 +310,28 @@ class PortalUtility
 
 		return json_encode($json, JSON_PRETTY_PRINT);
 	}
+
+	public function UpdateOwingSales($conn, $product_name, $product_price, $litres, $total_amount, $amount_paid, $amount_owing, $customer_name)
+	{
+
+		$sql = "UPDATE `sales` SET `product_name`= '$product_name', `product_price` = '$product_price', `product_quantity` = '$litres', `total_amount` = '$total_amount', `amount_paid` = '$amount_paid', `amount_owing` = '$amount_owing', `customer_name` = '$customer_name', `status` = 'Y' WHERE `status` = 'Owing'";
+		$result = mysqli_query($conn, $sql);
+		return '1';
+	}
+
+	public function fetchAllSalesById($conn, $sales)
+	{
+		$json = array();
+
+		$sqlSelect = "SELECT * FROM `sales` WHERE `sales_id`  = '$sales'";
+		$result = mysqli_query($conn, $sqlSelect);
+		while ($r = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+			$json[] = $r;
+		}
+
+		return json_encode($json, JSON_PRETTY_PRINT);
+	}
+
 }
 
 $portal = new PortalUtility();
